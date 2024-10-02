@@ -2,6 +2,7 @@
 const { nextui } = require("@nextui-org/react");
 
 export default {
+
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,5 +15,7 @@ export default {
   theme: {
     extend: {},
   },
+  darkMode: 'class',
   plugins: [nextui()],
+  
 };

@@ -3,23 +3,22 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
 import Widgets from "./components/Widgets"
-import {NextUIProvider} from "@nextui-org/react";
-
-
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { NextUIProvider } from '@nextui-org/react'
 function App() {
-
-
   return (
     <div>
       <NextUIProvider>
-      <Header />
-      <div className="flex flex-grow bg-gray-100">
-        <Sidebar className=""/>
-        <Feed className=""/>
-        <Widgets className=""/>
-      </div>
-      <Footer />
-      </NextUIProvider>
+      <NextThemesProvider attribute="class" defaultTheme="dark">
+        <Header />
+        <div className="flex flex-grow">
+          <Sidebar/>
+          <Feed/>
+          <Widgets/>
+        </div>
+        <Footer />
+        </NextThemesProvider>
+        </NextUIProvider>
     </div>
   )
 }

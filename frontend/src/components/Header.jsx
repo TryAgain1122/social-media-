@@ -7,6 +7,7 @@ import { LuHome } from "react-icons/lu";
 import { FaUserFriends } from "react-icons/fa";
 import { MdOndemandVideo } from "react-icons/md";
 import { CgGames } from "react-icons/cg";
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
           <NavbarBrand className="mr-4 space-x-3">
             {/* <AcmeLogo /> */}
             <h1 className='text-2xl font-bold md:hidden block'>RL</h1>
-            <p className="hidden sm:block font-bold text-inherit">Social</p>
+            <p className="hidden md:block font-bold text-inherit">Social</p>
           </NavbarBrand>
 
           <NavbarContent justify='center' className="hidden sm:flex gap-5">
@@ -39,13 +40,13 @@ const Header = () => {
               <MdOndemandVideo size={30}/>
             </NavbarItem>
             <NavbarItem isActive>
-              <div onClick={toggleThemes} className='cursor-pointer'>
+              {/* <div onClick={toggleThemes} className='cursor-pointer'>
                 {toggle ? <GoMoon size={30}/> : <LuSunDim size={30}/>}
-              </div>
+              </div> */}
+              <ThemeSwitcher />
             </NavbarItem>
           </NavbarContent>
-
-          
+        
         </NavbarContent>
 
         {/* Theme Toggle */}

@@ -10,17 +10,22 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDi
 const Feed = () => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [value, setValue] = useState("");
+    const [like, setLike] = useState(false)
 
     const [openImage, setOpenImage] = useState(false);
 
     const imageOpen = () => setOpenImage(!openImage);
 
     const closeImage = () => setOpenImage(false);
+    
+    const toggleLike = () => {
+        setLike(!like)
+    }
 
     return (
         <div className="flex-grow p-4 space-y-6 w-full md:w-1/2">
             {/* Create Post */}
-            <div className="bg-white p-4 rounded-lg shadow">
+            <div className="p-4 rounded-lg shadow">
                 <div className="flex space-x-4">
                     <img
                         src={karina}
@@ -68,7 +73,7 @@ const Feed = () => {
             {/* Modal for create Post */}
 
             {/* Posts */}
-            <div className="bg-white p-4 rounded-lg shadow">
+            <div className="p-4 rounded-lg shadow">
                 <div className="flex space-x-4">
                     <img
                         src={karina}
@@ -128,15 +133,18 @@ const Feed = () => {
 
             {/* Action Buttons */}
             <div className='flex justify-between items-center h-5 rounded-md'>
-                <div className='flex items-center justify-center space-x-2 cursor-pointer hover:bg-gray-300 p-2 rounded-md transition-colors duration-200 w-full'>
-                    <FiHeart size={15} />
+                <div 
+                    onClick={toggleLike}
+                    className='flex items-center justify-center space-x-2 cursor-pointer hover:text-black hover:bg-gray-200 p-2 rounded-md transition-colors duration-200 w-full'>
+                   {like ? <span>❤️</span> : <span>🤍</span>}
+                    {/* <FiHeart size={15} /> */}
                     <span>Like</span>
                 </div>
-                <div className='flex items-center justify-center space-x-2 cursor-pointer hover:bg-gray-300 p-2 rounded-md transition-colors duration-200 w-full'>
+                <div className='flex items-center justify-center space-x-2 cursor-pointer hover:text-black hover:bg-gray-200 p-2 rounded-md transition-colors duration-200 w-full'>
                     <FaRegComment size={15} />
                     <span>Comment</span>
                 </div>
-                <div className='flex items-center justify-center space-x-2 cursor-pointer hover:bg-gray-300 p-2 rounded-md transition-colors duration-200 w-full'>
+                <div className='flex items-center justify-center space-x-2 cursor-pointer hover:text-black hover:bg-gray-200 p-2 rounded-md transition-colors duration-200 w-full'>
                     <FiHeart size={15} />
                     <span>Share</span>
                 </div>
@@ -152,7 +160,7 @@ const Feed = () => {
                         alt="User"
                         className="rounded-full w-10 h-10"
                     />
-                    <div className='bg-gray-300 w-1/3 rounded-xl px-3 py-1'>
+                    <div className=' w-1/3 rounded-xl px-3 py-1'>
                         <div className="font-bold">John Doe</div>
                         <p className="text-sm text-gray-600">Just now</p>
                     </div>
